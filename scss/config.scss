@@ -1,0 +1,37 @@
+$primary-color: #045FA0;
+
+$secondary-color: #FF5A44;
+
+$light: rgb(240, 254, 255);
+
+$red: rgb(189, 69, 75);
+
+$dark-blue: #01223A;
+
+@mixin center {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @mixin text-center{
+      text-align: center;
+  }
+
+  @mixin border-radius($radius){
+    border-radius: $radius;
+     } 
+
+     @mixin media-sm{
+      @media screen and(max-width: 768px){
+          @content;
+      }
+  }
+
+  @mixin media-md{
+    @media screen and(max-width: 950px){
+        @content;
+    }
+}
+  

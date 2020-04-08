@@ -1,0 +1,667 @@
+@import './config';
+
+
+/* GLOBAL */
+
+::before,
+::after {
+    margin:0;
+    padding:0;
+    box-sizing:inherit;
+}
+
+html{
+    font-family: 'Comic Neue', cursive;
+    font-size:10px;
+    box-sizing:border-box;
+    scroll-behavior: smooth;
+      
+}
+
+body{
+    
+    margin:0;
+    
+    
+
+}
+
+a{
+ text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    margin:0;
+}
+
+p{
+    font-size:1.7rem;
+}
+
+img{
+    width:100%;
+    max-width: 100%;
+    height:auto;
+}
+
+section{
+    padding:5rem 0;
+}
+
+
+
+header{
+    width:100%;
+    height:7rem;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1; 
+}
+
+.container{
+    width:100%;
+    max-width:99rem;
+    margin: 0 auto;
+    
+}
+
+nav{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+}
+
+.nav-brand a{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 2.7rem;
+    color:$secondary-color;
+    letter-spacing: 2px;
+}
+
+.menu-icons{
+    display:none;
+
+}
+
+
+.nav-list{
+    width:initial;
+    height:initial;
+    background:transparent;
+    position: initial;
+    right:initial;
+    top:initial;
+    display:flex;
+    transition: initial;
+
+}
+
+.close{
+    display:none;
+
+}
+
+
+.nav-item{
+    margin: 0 2.5rem;
+   
+}
+
+.nav-link,
+.current{
+    font-size: 1.8rem;
+    color:$light;
+    position:relative;
+    
+
+    &:hover{
+      
+    }
+
+    &:active{
+        color:$secondary-color;
+    }
+
+    &::before{
+        content:"";
+        position: absolute;
+        left:0;
+        bottom:-0.8rem;
+        background-color:$secondary-color;
+        width:100%;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1s ease-in;
+    }
+}
+
+.current::before{
+    transform:scaleX(1);
+}
+
+.nav-link:hover::before{
+    transform:scaleX(1);
+
+}
+
+
+.hero{
+    width:100%;
+    height:70vh;
+    background: linear-gradient(135deg, rgba(5, 85, 143, 0.9) 0%, rgba(23, 51, 95, 0.7)100%), url("../img/header.jpg") top no-repeat fixed;
+    background-size: cover;
+    position:relative;
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:17rem;
+    background: url("../img/curve-large.png") top no-repeat;
+    background-size: cover;
+}
+
+.tagline{
+    width:100%;
+    max-width: 60rem;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 2px;
+    color:$light;
+    @include center;
+    @include text-center;
+    text-transform: capitalize;
+
+    & h3{
+        font-size:2.7rem;
+         color: $secondary-color;
+    }
+
+    & h1{
+        font-size:4rem;
+        font-family: 'Aldrich', sans-serif;
+    }
+
+    & .btn{
+        background:transparent;
+        border: 2px solid $secondary-color;
+        @include border-radius(0.5rem);
+        font-size:1.8rem;
+        color:$light;
+        padding:1.2rem;
+        margin: 0 auto;
+        display: inline-block;
+        transition: background-color 2s ease;
+
+        &:hover{
+            background-color:$dark-blue;
+            color:$light;
+        }
+    }
+}
+
+#activities{
+    transition: all 2s ease;
+}
+
+.activities{
+    padding:0;
+       
+}
+
+.title-heading{
+    @include text-center;
+    margin:1.2rem;
+    text-transform: capitalize;
+    margin-bottom:10rem;
+    color:$dark-blue;
+    letter-spacing: 1px;
+
+    & h3 {
+        font-size:1.7rem;
+    }
+
+    & h1{
+        font-family: 'Aldrich', sans-serif;
+        color: $secondary-color;
+        letter-spacing: 1px;
+        font-size: 2.1rem;
+        text-transform: uppercase;
+        margin:2rem 0;
+        margin-top:-1rem;
+    }
+
+    & p{
+        margin-top: -0.5rem;
+        
+        
+        
+    }
+}
+
+.activities-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+
+    & i {
+        font-size: 2.2rem;
+        color:$secondary-color;
+    }
+
+    & .grid-item{
+      color:$light;
+      position:relative;
+      padding:2rem;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      z-index:1;
+
+      &::before{
+          content:"";
+          position: absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          background: linear-gradient(135deg, rgba(5, 85, 143, 0.9) 0%, rgba(23, 51, 95, 0.7)100%) top no-repeat;
+          z-index:-1;
+      }
+
+      & h1{
+        font-family: 'Aldrich', sans-serif;
+        letter-spacing: 1px;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        margin:2rem 0;
+      }
+      
+
+    }
+
+    & p{
+        margin-right:1.2rem;
+    }
+}
+
+.motorcycling{
+    background:url(../img/header.jpg) center no-repeat;
+   
+}
+
+.hiking{
+  background:url(../img/hiking.jpg) center no-repeat;
+ 
+}
+
+.biking{
+  background:url(../img/biking.jpg) bottom no-repeat;
+ 
+}
+
+.testimonials{
+    width:100%;
+    height:80vh;
+    background: linear-gradient(135deg, rgba(5, 85, 143, 0.9) 0%, rgba(23, 51, 95, 0.7)100%), url("../img/testim-back.jpg") top no-repeat fixed;
+    background-size: cover;
+    position: relative;
+
+     &::before{
+        content: "";
+        position: absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:18rem;
+        background: url("../img/curve-large-reversed.png") center no-repeat;
+        background-size: cover;
+    }
+     }
+
+    
+.testimonial-content{
+ width:100%;
+ color:$light;
+ position:absolute;
+ top:65%;
+ left:50%;
+ transform:translate(-50%, -50%);
+ @include text-center;
+}
+
+.testimonial-text{
+    padding:0 1.5rem;
+    margin-bottom: 2rem;
+    position:relative;
+
+    & i{
+        position:absolute;
+        top:-9rem;
+        left:50%;
+        transform:translateX(-50%);
+        font-size: 8rem;
+        color:$secondary-color;
+        opacity:0.5;
+        z-index:-1;
+    }
+
+    & p{
+      font-size:2rem;
+    }
+
+}
+
+.testimonial-img img{
+    width:10rem;
+    height:10rem;
+    border-radius: 100%;
+    border:4px solid $secondary-color;
+}
+
+.adventure{
+
+
+    & .title-heading{
+        margin-bottom:5rem;
+    }
+
+    & .title-heading h1{
+        font-family: 'Aldrich', sans-serif;
+        color: $secondary-color;
+        letter-spacing: 1px;
+        font-size: 2.1rem;
+        text-transform: uppercase;
+        margin:2rem 0;
+      }
+
+      & .btn {
+        background-color:$secondary-color;
+        @include border-radius(0.5rem);
+        font-size:1.8rem;
+        color:$light;
+        padding:1rem;
+        margin: 0 auto;
+        margin-left: 1rem;
+        display: inline-block;
+        transition: background-color 2s ease;
+
+        &:hover{
+            background-color:$dark-blue;
+            color:$light;
+        }
+    } 
+}
+
+.adventure-grid{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 2.5rem;
+
+    
+        & .grid-item{
+          color:$dark-blue;
+          letter-spacing: 1px;
+          position:relative;
+          padding:1rem;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          z-index:1;         
+    
+        }
+    
+        & p{
+            margin-right:1.2rem;
+        }
+    }
+
+    .contact-section {
+        padding: 30px 0 50px 0;
+        background: linear-gradient(135deg, rgba(5, 85, 143, 0.9) 0%, rgba(23, 51, 95, 0.7)100%), url("../img/contact.jpg") center no-repeat fixed;
+        background-size: cover;
+        padding: 30px 0 50px 0;
+        @include text-center;
+        color:$light;
+       
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 2.2rem;
+            margin-bottom: 1.4rem;
+            text-transform: uppercase;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 0 auto;
+            margin-top:4rem;
+            max-width: 880px;
+            height: 450px;
+            background: rgba(1, 34, 58, 0.8);
+            text-align: left;
+            padding: 10px 0;
+            .name,
+            .email{
+                label {
+                    font-size:1.5rem;
+                }
+            }
+            .subject,
+            .content {
+                width: 80%;
+                margin: 0 auto;
+                label {
+                    display: block;
+                    padding: 0;
+                    margin: 0;
+                   font-size:1.5rem;
+                }
+            }
+            .id {
+                display: flex;
+                justify-content: space-between;
+                height: 80px;
+                width: 80%;
+                margin: 0 auto;
+                .name,
+                .email
+                {
+                    display: inline-block;
+                    width: 45%;
+                    label {
+                        display: block;
+                        padding: 0;
+                        margin: 0;
+                       
+                    }
+                    input[name="email"],
+                    input[name="name"] {
+                        width: 100%;
+                        height: 40px;
+                    }
+                }
+            }
+            .subject {
+                height: 62px;
+                input[name="subject"] {
+                    width: 100%;
+                    height: 40px;
+                }
+            }
+            .content {
+                @include text-center;
+                textarea {
+                    width: 100%;
+                    resize: none;
+                }
+                button {
+                    background:transparent;
+                    border:2px solid $secondary-color;
+                    @include border-radius(0.5rem);
+                    font-size:1.8rem;
+                    color:$light;
+                    padding:1rem;
+                    margin: 0 auto;
+                    margin-top:2rem;
+                    display: inline-block;
+                    transition: background-color 2s ease;
+                    cursor:pointer;
+            
+                    &:hover{
+                        background:transparent;
+                        background-color:$secondary-color;
+                        color:$light;
+                        
+                    }
+                } 
+                }
+            }
+        }
+    
+
+
+    footer{
+        padding:2.5rem 0;
+        background: $light; 
+        color:$dark-blue;
+        @include text-center;
+    }
+
+//MEDIA max-width: 768px
+
+@include media-sm {
+
+
+    .nav-brand{
+        padding-left:1rem;
+    }
+
+    .tagline{
+        max-width: 36rem;
+    }
+
+    .tagline h1{
+        font-size: 2.8rem;
+    }
+
+    .container {
+        max-width:100%;
+    }
+
+    .menu-icons{
+        display:block;
+    }
+
+    .menu-icons i{
+        font-size: 3.5rem;
+        color:$light;
+        margin-right: 3rem;
+        cursor:pointer;
+    
+    }
+    
+    i.ion-md-close{
+        color:$secondary-color;
+    }
+    
+    .nav-list{
+        width:18rem;
+        height:30vh;
+        background:$dark-blue;
+        position: fixed;
+        right:-30rem;
+        top:0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: top;
+        z-index:1500;
+        transition: all 1s ease-in-out;
+    
+        &.active{     
+          right:0;
+         
+        }
+    
+    }
+    
+    .close{
+        position: absolute;
+        top:1rem;
+        left:1.5em;
+        cursor:pointer;
+        color:$secondary-color;
+    
+    }
+    
+    
+    .nav-item{
+        margin:1.5rem 0;
+    }
+    
+    .nav-link{
+        font-size: 1.7rem;
+        color:$light;
+    }
+
+
+    .hero::before{
+        background: url("../img/curve-small.png");
+        background-size: cover;
+        height:9.4rem;
+    }
+
+    .testimonials::before{
+        background: url("../img/curve-small-reversed.png");
+        background-size: cover;
+        height:9.4rem;
+    }
+
+
+    .activities-grid{
+        padding: 0 1.5rem;
+       
+    } 
+    
+    .adventure{
+        & .btn {
+            margin-left: 2.5rem;
+        }
+    }
+
+    .adventure-grid{
+        padding: 0 1.5rem;
+        grid-gap: 0;
+    }
+
+}
+
+//MEDIA max-width: 950px
+
+@include media-md {
+
+.hero::before{
+    background: url("../img/curve-medium.png");
+    background-size: cover;
+    height:9.4rem;
+}
+
+.testimonials::before{
+    background: url("../img/curve-medium-reversed.png");
+    background-size: cover;
+    height:9.4rem;
+}
+}
